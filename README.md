@@ -9,7 +9,7 @@ Prepare the DBs and the environment. Then run a Celery worker.
 $ docker run --rm -d -p 5432:5432 -e POSTGRES_PASSWORD=mypassword postgres
 
 # RabbitMQ
-# $ docker run -d --rm -p 5672:5672 rabbitmq
+$ docker run -d --rm -p 5672:5672 rabbitmq
 
 # or Redis
 # $ docker run --rm -d -p 6379:6379 redis
