@@ -1,5 +1,7 @@
 from django.http import HttpResponse
+from mysite.celery import app
 
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+    res = app.send_task("workers.concatenator.tasks.concat_scenes", (["video1", "video2"],)).get()
+    return HttpResponse("Worker finished with result: " + str(res))

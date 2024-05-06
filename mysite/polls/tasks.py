@@ -4,5 +4,5 @@ import time
 
 @shared_task
 def add(x, y):
-    time.sleep(10)
+    time.sleep(2)
     return x + y
