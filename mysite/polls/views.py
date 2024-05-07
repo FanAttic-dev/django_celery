@@ -3,5 +3,6 @@ from mysite.celery import app
 
 
 def index(request):
-    res = app.send_task("workers.concatenator.tasks.concat_scenes", (["video1", "video2"],)).get()
+    task = app.send_task("workers.concatenator.tasks.concat_scenes", (["video1", "video2"],))
+    res = task.get()
     return HttpResponse("Worker finished with result: " + str(res))
